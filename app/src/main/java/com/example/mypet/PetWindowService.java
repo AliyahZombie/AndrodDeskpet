@@ -300,7 +300,7 @@ public class PetWindowService extends Service {
                 } else if (age < 3600) {
                     pet_img = luyiSet[1];
                 } else {
-                    pet_img = Set[2];
+                    pet_img = luyiSet[2];
                 }
                 break;
             default:
