@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.net.Uri;
 
 import androidx.annotation.Nullable;
 
@@ -71,6 +72,7 @@ public class PetWindowService extends Service {
     final int[] mwSet = {R.drawable.miaowa1, R.drawable.miaowa2, R.drawable.miaowa3};
     final int[] szSet = {R.drawable.shanzhu1, R.drawable.shanzhu2, R.drawable.shanzhu3};
     final int[] wzSet = { R.drawable.wz1, R.drawable.wz2, R.drawable.wz3, R.drawable.wz4, R.drawable.wz5};
+    final int[] luyiSet = {R.drawable.luyi1, R.drawable.luyi2, R.drawable.luyi3};
 
     @Override
     public void onCreate() {
@@ -94,7 +96,7 @@ public class PetWindowService extends Service {
         petSet.put("山竹", szSet);
         petSet.put("妙蛙", mwSet);
         petSet.put("旺仔", wzSet);
-        petSet.put("鹿弈", luyiSet)
+        petSet.put("鹿弈", luyiSet);
     }
 
     // 菜单里的功能实现
@@ -142,14 +144,11 @@ public class PetWindowService extends Service {
             }
         });
 
-        // 点击imgCart打开淘宝
+        // 点击imgCart打开bilibili
         imgCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("taobao://shop.m.taobao.com"));
-                Intent intent = new Intent();
-                intent.setAction("Android.intent.action.VIEW");
-                intent.setClassName("com.taobao.taobao", "com.taobao.tao.welcome.Welcome");
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://b23.tv/wmi1Jio"));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
