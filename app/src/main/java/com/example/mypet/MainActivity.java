@@ -362,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             case "鹿弈" :
-                if (age < 60) {
+                if (pet_age < 60) {
                     pet_img = luyiSet[0];
                 } else if (age < 3600) {
                     pet_img = luyiSet[1];
