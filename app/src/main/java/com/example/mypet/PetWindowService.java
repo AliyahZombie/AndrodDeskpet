@@ -94,6 +94,7 @@ public class PetWindowService extends Service {
         petSet.put("山竹", szSet);
         petSet.put("妙蛙", mwSet);
         petSet.put("旺仔", wzSet);
+        petSet.put("鹿弈", luyiSet)
     }
 
     // 菜单里的功能实现
@@ -292,6 +293,15 @@ public class PetWindowService extends Service {
                     pet_img = wzSet[3];
                 } else {
                     pet_img = wzSet[4];
+                }
+                break;
+            case "鹿弈" :
+                if (age < 60) {
+                    pet_img = luyiSet[0];
+                } else if (age < 3600) {
+                    pet_img = luyiSet[1];
+                } else {
+                    pet_img = Set[2];
                 }
                 break;
             default:

@@ -1,6 +1,12 @@
 package com.example.mypet;
 
-
+import android.Manifest;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.widget.Toast;
 import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -43,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
     // 宠物年龄(秒）
     long petAgeSeconds = 0;
     // 宠物名字
-    String petName = "wangzai";
+    String petName = "luyi";
     // 宠物类型
-    String mode = "旺仔";
+    String mode = "鹿弈";
 
     // 暂时的名字
     String tmp_name;
@@ -67,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayAdapter<String> petNameAdapter;
 
-    final String[] modeArray = {"狐狸", "山竹", "海狮", "妙蛙", "旺仔"};
+    //final String[] modeArray = {"狐狸", "山竹", "海狮", "妙蛙", "旺仔"};
+
+    final String[] modeArray = {"鹿弈"}
 
     // 宠物分类
     final int[] foxSet = {R.drawable.fox1, R.drawable.fox2, R.drawable.fox3};
@@ -75,6 +83,21 @@ public class MainActivity extends AppCompatActivity {
     final int[] mwSet = {R.drawable.miaowa1, R.drawable.miaowa2, R.drawable.miaowa3};
     final int[] szSet = {R.drawable.shanzhu1, R.drawable.shanzhu2, R.drawable.shanzhu3};
     final int[] wzSet = { R.drawable.wz1, R.drawable.wz2, R.drawable.wz3, R.drawable.wz4, R.drawable.wz5};
+    final int[] luyiSet = {R.drawable.luyi1, R.drawable.luyi2, R.drawable.luyi3}
+
+    private void checkOverlayPermission() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (!Settings.canDrawOverlays(this)) {
+                    // 没有悬浮窗权限, 跳转到权限设置页面
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                            Uri.parse("package:" + getPackageName()));
+                    startActivityForResult(intent, 0);
+                    // 显示Toast提示
+                    Toast.makeText(this, "需要悬浮窗权限，请授权", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
 
         // 事件监听
         exeListen();
+        
+        // 检查悬浮窗权限
+        checkOverlayPermission();
 
         Log.d(TAG, "onCreate: " + petName + " " + mode);
 
@@ -162,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                     // 创建宠物
                     createPet(mode, petName, petAgeSeconds);
                     Toast.makeText(MainActivity.this,
-                            "恭喜你拥有了一只" + mode + "类宠物，" + "它的名字叫" + petName,
+                            "恭喜你领养了一只鹿弈捏！你给他取名叫叫" + petName,
                             Toast.LENGTH_LONG).show();
                     petNameAdapter.add(petName);
 
@@ -333,6 +359,15 @@ public class MainActivity extends AppCompatActivity {
                     pet_img = wzSet[3];
                 } else {
                     pet_img = wzSet[4];
+                }
+                break;
+            case "鹿弈" :
+                if (age < 60) {
+                    pet_img = luyiSet[0];
+                } else if (age < 3600) {
+                    pet_img = luyiSet[1];
+                } else {
+                    pet_img = Set[2];
                 }
                 break;
             default:
