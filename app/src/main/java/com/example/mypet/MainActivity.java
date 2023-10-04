@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     //final String[] modeArray = {"狐狸", "山竹", "海狮", "妙蛙", "旺仔"};
 
-    final String[] modeArray = {"鹿弈"}
+    final String[] modeArray = {"鹿弈"};
 
     // 宠物分类
     final int[] foxSet = {R.drawable.fox1, R.drawable.fox2, R.drawable.fox3};
