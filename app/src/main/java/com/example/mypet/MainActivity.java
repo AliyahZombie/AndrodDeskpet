@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     final int[] mwSet = {R.drawable.miaowa1, R.drawable.miaowa2, R.drawable.miaowa3};
     final int[] szSet = {R.drawable.shanzhu1, R.drawable.shanzhu2, R.drawable.shanzhu3};
     final int[] wzSet = { R.drawable.wz1, R.drawable.wz2, R.drawable.wz3, R.drawable.wz4, R.drawable.wz5};
-    final int[] luyiSet = {R.drawable.luyi1, R.drawable.luyi2, R.drawable.luyi3}
+    final int[] luyiSet = {R.drawable.luyi1, R.drawable.luyi2, R.drawable.luyi3};
 
     private void checkOverlayPermission() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
