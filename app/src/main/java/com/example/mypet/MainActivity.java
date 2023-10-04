@@ -371,7 +371,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             default:
-                pet_img = wzSet[0];
+                pet_img = luyiSet[0];
         }
         return pet_img;
     }
